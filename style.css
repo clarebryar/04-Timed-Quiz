@@ -1,0 +1,30 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(163, 210, 194);
+}
+
+#answersList {
+    display: flex;
+    margin: 10px;
+    justify-content:center; 
+}
+
+#questions {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+li {
+    list-style-type: none;
+    padding: 15px;
+    margin: 10px;
+}
+
