@@ -85,10 +85,9 @@ setInterval(displayTimer, 1000);
 
 function displayTimer () {
   var minutes = Math.floor(time / 60);
-  var seconds = time * 60; 
-  timerEl.textContent = minutes; seconds;
+  var seconds = time % 60; 
+  var currentTime = `${minutes}: ${seconds}`;
+  timerEl.textContent = currentTime;
 
-    time--;
-    
-   
+    time--;   
 }
