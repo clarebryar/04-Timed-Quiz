@@ -15,17 +15,18 @@
     
     <div id = answersList>
        <ul> 
-        <button><li id= "answer1" onclick = "correctAnswers(event)"></li></button>
-        
-        <button><li id= "answer2" onclick = "correctAnswers(event)"></li></button>
-        <button><li id= "answer3" onclick = "correctAnswers(event)"></li></button>
-        <button><li id= "answer4" onclick = "correctAnswers(event)"></li></button>
+        <button><li class="answerButton" id= "answer1" onclick = "answerOutcomesMessage(event)"></li></button>
+        <button><li class="answerButton" id= "answer2" onclick = "answerOutcomesMessage(event)"></li></button>
+        <button><li class="answerButton" id= "answer3" onclick = "answerOutcomesMessage(event)"></li></button>
+        <button><li class="answerButton" id= "answer4" onclick = "answerOutcomesMessage(event)"></li></button>
     </ul>
     </div>
     <div>
         <button id="nextButton">Next Question</button>
     </div>
     <div id="answerMessage"></div>
+
+    <div><p id="score" display = "none"> Score: </p></div>
 
     <script src ="script.js"></script>
 </body>
