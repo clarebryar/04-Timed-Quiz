@@ -10,4 +10,4 @@ After clicking the start game button, the timer starts, and the user can answer 
 
 
 
-Link to deployed page:
+Link to deployed page:https://clarebryar.github.io/04-Timed-Quiz/
