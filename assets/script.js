@@ -3,7 +3,7 @@
 var startButton = document.querySelector("#start");
 var nextButton = document.querySelector("#nextButton");
 
-var startingTime = 2;
+var startingTime = 1;
 var time = startingTime * 60; 
 var timerEl = document.querySelector(".timer")
 var currentQuestion;
@@ -27,11 +27,21 @@ var quizQuestions = [
     option4: "Math.floor",
     answer: "document.querySelector",
   },
+  {
+    question: "",
+    option1: "",
+    option2: "",
+    option3: "",
+    option4: "",
+    answer: "",
+  }
 ];
 
 var questionEl = document.querySelector("#questions");
 var answerListEl = document.querySelector("#answersList");
 var answerMessage = document.querySelector("#answerMessage");
+var saveScore = document.querySelector("#saveScore");
+var scoreText = document.querySelector("#scoreText");
 var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
 var answer3 = document.querySelector("#answer3");
@@ -45,6 +55,12 @@ answerListEl.style.display = "none";
 nextButton.style.display = "none"; 
 var ul = document.querySelector('ul')
 ul.style.display = "none"
+saveScore.style.display = "none"
+scoreText.style.display = "none"
+
+var minutes = Math.floor(time / 60);
+  var seconds = time % 60; 
+  var currentTime = `${minutes}: ${seconds}`;
 
 function displayTimer () {
   var minutes = Math.floor(time / 60);
@@ -52,8 +68,7 @@ function displayTimer () {
   var currentTime = `${minutes}: ${seconds}`;
   timerEl.textContent = currentTime;
     time--;  
-
-  if (currentTime === 0 ); {
+if (currentTime === 0 ); {
     clearInterval();
   }   
 }
@@ -65,6 +80,9 @@ startButton.addEventListener("click", function (event) {
 setInterval(displayTimer, 1000);
   showQuiz();
   startButton.style.display = "none"; 
+  if (currentTime === 0 ); {
+    clearInterval();
+  }   
 });
 
 function showQuiz() {
@@ -77,17 +95,19 @@ function showQuiz() {
   answer3.textContent = quizQuestions[questionCount].option3;
   answer4.textContent = quizQuestions[questionCount].option4;  
   }
+
   nextButton.addEventListener("click", function (event) {
     event.preventDefault();
     questionCount++ 
    showQuiz();
-if (questionCount == 3) {
-   displayScore ();
-  }
+   if (questionCount === 2) {
+    displayScore();
+   }
+
   });
   
-
   answerListEl.style.display = "inline";
+  
   function answerOutcomesMessage (event) {
     console.log(event.target)
     console.log(event.target.textContent)
@@ -98,8 +118,7 @@ if (questionCount == 3) {
      localStorage.setItem("score", score);
      
     } 
-    
-    else {
+     else {
       messageDisplay("Incorrect")
       score--
       localStorage.setItem("score", score);
@@ -115,9 +134,14 @@ answerMessage.textContent = answer
   }
   
   function displayScore () {
+    nextButton.style.display = "none";
+    ul.style.display = "none";
+    answerListEl.display = "none";
+    saveScore.style.display = "inline";
+    scoreText.style.display = "inline";
     document.querySelector('#score').textContent = score 
-    nextButton.style.display = "none"
-    ul.style.display = "none"
+
+    
   }
 
  
